@@ -5,14 +5,13 @@ Created on Thu Dec 19 17:07:38 2019
 
 @author: shadi
 """
+#the data is a matrix of no_channel*windowsize
+
 def apply_eeg_feat_py (data,fs):
 
 
     import numpy as np
-    import biosignalsnotebooks as bsnb # biosignalsnotebooks
     from scipy.signal import hilbert 
-    from scipy.signal import coherence
-    from neurokit import rsp_process
     from scipy.signal import butter, lfilter
     
     
@@ -22,7 +21,7 @@ def apply_eeg_feat_py (data,fs):
     #x_temp : input 
     #fs = 200  
                              
-    no_chan=data.size[1]
+    no_chan=data.size[0]
     #data=np.random.uniform( 0, 100,(no_chan, fs*dur))
     
     
